@@ -24,3 +24,11 @@ function clearPad() {
     const div = gridContainer.querySelectorAll('div');
     div.forEach((square) => square.style.backgroundColor = 'rgb(241, 245, 247)');
 };
+
+// removes current grid 
+function clearGrid() {
+    const squares = document.querySelectorAll('#grid-container div');
+    squares.forEach((square) => {
+        gridContainer.removeChild(square);
+    })
+};
