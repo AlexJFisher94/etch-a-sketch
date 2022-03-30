@@ -1,4 +1,9 @@
 const gridContainer = document.querySelector('#grid-container');
+const pixelButtons = document.querySelectorAll('.pixel-buttons');
+let cells = [];
+
+// event listeners
+pixelButtons.forEach((btn) => btn.addEventListener('click', changeGridSize));
 
 // creates default grid
 function createGrid(numOfRows = 64) {
@@ -32,3 +37,17 @@ function clearGrid() {
         gridContainer.removeChild(square);
     })
 };
+
+// changes grid size
+function changeGridSize(e) {
+    if (e.target == document.querySelector('#btn1')) {
+        clearGrid();
+        createGrid(32);
+    } else if (e.target == document.querySelector('#btn2')) {
+        clearGrid();
+        createGrid(64);
+    } else if (e.target == document.querySelector('#btn3')) {
+        clearGrid();
+        createGrid(128);
+    }
+}
