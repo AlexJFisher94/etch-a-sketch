@@ -62,3 +62,19 @@ h2 {
     font-family: 'Orbitron', sans-serif;
 }
 
+#clear, #rainbow-pen {
+    border: none;
+    background-color:rgb(66, 177, 211);
+    border-radius: 8px;
+    width: 90%;
+    height: 30px;
+    font-family: 'Orbitron', sans-serif; 
+    margin-top: 25px;
+}
+
+#clear:hover, .pixel-buttons:hover, #rainbow-pen:hover {
+    transform: scale(1.01);
+    border: 1px solid black;
+    transition: all .05s ease-in;
+}
+
