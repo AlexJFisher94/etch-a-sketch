@@ -1,13 +1,13 @@
 const gridContainer = document.querySelector('#grid-container');
 const pixelButtons = document.querySelectorAll('.pixel-buttons');
 const clearButton = document.querySelector('#clear');
-const rainbowPen = document.querySelector('#rainbow-pen');
+const rainbowPen = document.querySelector('.rainbow-pen');
 let cells = [];
 
 // event listeners
 pixelButtons.forEach((btn) => btn.addEventListener('click', changeGridSize));
 clearButton.addEventListener('click', clearPad);
-rainbowPen.addEventListener('click',  toggleRainbowMode);
+rainbowPen.addEventListener('click', toggleRainbowMode);
 
 // creates default grid
 function createGrid(numOfRows = 64) {
@@ -28,17 +28,15 @@ function colorSquare() {
     this.style.backgroundColor = 'black';
 }
 
+// toggles rainbow mode
 function toggleRainbowMode() {
     if(rainbowPen.value == "OFF") {
         rainbowPen.value = "ON";
+        rainbowPen.classList.add('btn-on');
     } else {
         rainbowPen.value = "OFF";
+        rainbowPen.classList.remove('btn-on');
     }
-    toggleRainbowPen();
-}
-
-// toggles rainbow pen
-function toggleRainbowPen() {
     const div = gridContainer.querySelectorAll('div');
     div.forEach((square) => square.addEventListener('mouseover', generateColor));
 }
@@ -46,12 +44,12 @@ function toggleRainbowPen() {
 // generates random colors for rainbow pen
 function generateColor() {
     if (rainbowPen.value == "ON") {
-    let color1 = randomNum();
-    let color2 = randomNum();
-    let color3 = randomNum();
-    this.style.backgroundColor = `rgb(${color1}, ${color2}, ${color3})`;
+        let color1 = randomNum();
+        let color2 = randomNum();
+        let color3 = randomNum();
+        this.style.backgroundColor = `rgb(${color1}, ${color2}, ${color3})`;
     } else {
-    return;
+        return;
     }
  }
  
