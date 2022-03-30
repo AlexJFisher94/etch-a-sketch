@@ -35,6 +35,20 @@ function toggleRainbowPen() {
     div.forEach((square) => square.addEventListener('mouseover', generateColor));
 }
 
+// generates random colors for rainbow pen
+function generateColor() {
+    let color1 = randomNum();
+    let color2 = randomNum();
+    let color3 = randomNum();
+    this.style.backgroundColor = `rgb(${color1}, ${color2}, ${color3})`
+ }
+ 
+ // generates random number between 0 and 255
+ function randomNum() {
+     let num = Math.floor(Math.random() * (255 + 1)).toString();
+     return num;
+ }
+
 // clears sketchpad
 function clearPad() {
     const div = gridContainer.querySelectorAll('div');
