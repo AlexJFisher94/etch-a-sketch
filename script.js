@@ -1,9 +1,13 @@
 const gridContainer = document.querySelector('#grid-container');
 const pixelButtons = document.querySelectorAll('.pixel-buttons');
+const clearButton = document.querySelector('#clear');
+const rainbowPen = document.querySelector('#rainbow-pen');
 let cells = [];
 
 // event listeners
 pixelButtons.forEach((btn) => btn.addEventListener('click', changeGridSize));
+clearButton.addEventListener('click', clearPad);
+rainbowPen.addEventListener('click',  toggleRainbowPen);
 
 // creates default grid
 function createGrid(numOfRows = 64) {
