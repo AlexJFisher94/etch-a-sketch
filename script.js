@@ -7,7 +7,7 @@ let cells = [];
 // event listeners
 pixelButtons.forEach((btn) => btn.addEventListener('click', changeGridSize));
 clearButton.addEventListener('click', clearPad);
-rainbowPen.addEventListener('click',  toggleRainbowPen);
+rainbowPen.addEventListener('click',  toggleRainbowMode);
 
 // creates default grid
 function createGrid(numOfRows = 64) {
@@ -28,19 +28,31 @@ function colorSquare() {
     this.style.backgroundColor = 'black';
 }
 
+function toggleRainbowMode() {
+    if(rainbowPen.value == "OFF") {
+        rainbowPen.value = "ON";
+    } else {
+        rainbowPen.value = "OFF";
+    }
+    toggleRainbowPen();
+}
+
 // toggles rainbow pen
 function toggleRainbowPen() {
-    clearPad();
     const div = gridContainer.querySelectorAll('div');
     div.forEach((square) => square.addEventListener('mouseover', generateColor));
 }
 
 // generates random colors for rainbow pen
 function generateColor() {
+    if (rainbowPen.value == "ON") {
     let color1 = randomNum();
     let color2 = randomNum();
     let color3 = randomNum();
-    this.style.backgroundColor = `rgb(${color1}, ${color2}, ${color3})`
+    this.style.backgroundColor = `rgb(${color1}, ${color2}, ${color3})`;
+    } else {
+    return;
+    }
  }
  
  // generates random number between 0 and 255
@@ -76,3 +88,5 @@ function changeGridSize(e) {
         createGrid(128);
     }
 }
+
+createGrid();
