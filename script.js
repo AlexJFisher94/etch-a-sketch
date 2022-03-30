@@ -18,3 +18,9 @@ function createGrid(numOfRows = 64) {
 function colorSquare() {
     this.style.backgroundColor = 'black';
 }
+
+// clears sketchpad
+function clearPad() {
+    const div = gridContainer.querySelectorAll('div');
+    div.forEach((square) => square.style.backgroundColor = 'rgb(241, 245, 247)');
+};
