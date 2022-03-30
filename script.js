@@ -28,6 +28,13 @@ function colorSquare() {
     this.style.backgroundColor = 'black';
 }
 
+// toggles rainbow pen
+function toggleRainbowPen() {
+    clearPad();
+    const div = gridContainer.querySelectorAll('div');
+    div.forEach((square) => square.addEventListener('mouseover', generateColor));
+}
+
 // clears sketchpad
 function clearPad() {
     const div = gridContainer.querySelectorAll('div');
