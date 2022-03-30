@@ -13,3 +13,8 @@ function createGrid(numOfRows = 64) {
      const div = gridContainer.querySelectorAll('div');
      div.forEach((square) => square.addEventListener('mouseover', colorSquare));
 }
+
+// colors squares black
+function colorSquare() {
+    this.style.backgroundColor = 'black';
+}
