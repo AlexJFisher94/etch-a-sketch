@@ -1,0 +1,36 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(227, 242, 248);
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    font-size: 45px;
+    font-weight: 100;
+    color:rgb(59, 59, 59)
+}
+
+#grid-container {
+    display: grid;
+    box-sizing: content-box;
+    float: right;
+    margin-top: 1vh;
+    margin-right: 6vw;
+    margin-bottom: 2vh;
+    width: 50vw;
+    height: 50vw;
+    border: 1px solid rgb(59, 59, 59);
+}
+
+.cell {
+    border: .5px solid rgb(148, 147, 147);
+    background-color: rgb(241, 245, 247);
+}
+
