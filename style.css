@@ -89,8 +89,3 @@ h2 {
     border: 2.2px solid white;
     background-color: rgb(91, 228, 187);
 }
-
-.clicked:focus {
-    border: 2.2px solid white;
-    background-color: rgb(91, 228, 187);
-}
