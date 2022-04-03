@@ -1,6 +1,6 @@
 const gridContainer = document.querySelector('#grid-container');
 const pixelButtons = document.querySelectorAll('.pixel-buttons');
-const clearButton = document.querySelector('#clear');
+const clearButton = document.querySelector('.clear');
 const rainbowPen = document.querySelector('.rainbow-pen');
 let cells = [];
 
@@ -19,9 +19,10 @@ function createGrid(numOfRows = 64) {
         cell.classList.add('cell');
         gridContainer.appendChild(cell);
     }
-     const div = gridContainer.querySelectorAll('div');
-     div.forEach((square) => square.addEventListener('mouseover', colorSquare));
-}
+    document.querySelector('#btn2').classList.add('px-btn-on');
+    const div = gridContainer.querySelectorAll('div');
+    div.forEach((square) => square.addEventListener('mouseover', colorSquare));
+}   
 
 // colors squares black
 function colorSquare() {
@@ -30,7 +31,7 @@ function colorSquare() {
 
 // toggles rainbow mode
 function toggleRainbowMode() {
-    if(rainbowPen.value == "OFF") {
+    if (rainbowPen.value == "OFF") {
         rainbowPen.value = "ON";
         rainbowPen.classList.add('btn-on');
     } else {
@@ -78,13 +79,26 @@ function changeGridSize(e) {
     if (e.target == document.querySelector('#btn1')) {
         clearGrid();
         createGrid(32);
+        buttonOn(e);
+        document.querySelector('#btn2').classList.remove('px-btn-on');
+        document.querySelector('#btn3').classList.remove('px-btn-on');
     } else if (e.target == document.querySelector('#btn2')) {
         clearGrid();
         createGrid(64);
+        buttonOn(e);
+        document.querySelector('#btn1').classList.remove('px-btn-on');
+        document.querySelector('#btn3').classList.remove('px-btn-on');
     } else if (e.target == document.querySelector('#btn3')) {
         clearGrid();
         createGrid(128);
+        buttonOn(e);
+        document.querySelector('#btn1').classList.remove('px-btn-on');
+        document.querySelector('#btn2').classList.remove('px-btn-on');
     }
+}
+
+function buttonOn(e) {
+    e.target.classList.add('px-btn-on');
 }
 
 createGrid();
