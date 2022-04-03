@@ -77,26 +77,28 @@ function clearGrid() {
 // changes grid size
 function changeGridSize(e) {
     if (e.target == document.querySelector('#btn1')) {
-        clearGrid();
-        createGrid(32);
-        buttonOn(e);
+        newGrid(32);
         document.querySelector('#btn2').classList.remove('px-btn-on');
         document.querySelector('#btn3').classList.remove('px-btn-on');
     } else if (e.target == document.querySelector('#btn2')) {
-        clearGrid();
-        createGrid(64);
-        buttonOn(e);
+        newGrid(64);
         document.querySelector('#btn1').classList.remove('px-btn-on');
         document.querySelector('#btn3').classList.remove('px-btn-on');
     } else if (e.target == document.querySelector('#btn3')) {
-        clearGrid();
-        createGrid(128);
-        buttonOn(e);
+        newGrid(128);
         document.querySelector('#btn1').classList.remove('px-btn-on');
         document.querySelector('#btn2').classList.remove('px-btn-on');
     }
 }
 
+// runs multiple functions to shorten code
+function newGrid(px) {
+    clearGrid();
+    createGrid(px);
+    buttonOn(e);
+}
+
+// adds styling class to buttons when clicked
 function buttonOn(e) {
     e.target.classList.add('px-btn-on');
 }
